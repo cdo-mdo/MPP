@@ -1,9 +1,9 @@
-package lesson2.lecture.unidirectional.onemany.extpackage;
+package lab02.assignment_2_5.unidirectional.onemany.extpackage;
 
 import java.time.LocalDate;
 
-import lesson2.lecture.unidirectional.onemany.Customer;
-import lesson2.lecture.unidirectional.onemany.*;
+import lab02.assignment_2_5.unidirectional.onemany.Customer;
+import lab02.assignment_2_5.unidirectional.onemany.*;
 
 public class Main {
 	public static void main(String[] args) {
@@ -15,8 +15,6 @@ public class Main {
 		order.addItem("Pants");
 		order.addItem("Knife set");
 		System.out.println(cust.getOrders());
-		//cannot directly create an Order here
+		// cannot directly create an Order here
 	}
 }
-
-		

@@ -1,4 +1,4 @@
-package lesson2.lecture.unidirectional.onemany;
+package lab02.assignment_2_5.unidirectional.onemany;
 
 import java.time.LocalDate;
 import java.util.*;
@@ -6,18 +6,22 @@ import java.util.*;
 public class Customer {
 	private String name;
 	private List<Order> orders;
+
 	public Customer(String name) {
 		this.name = name;
-		orders = new ArrayList<Order>();	
+		orders = new ArrayList<Order>();
 	}
+
 	public Order addOrder(LocalDate dateOfOrder) {
 		Order ord = new Order(dateOfOrder);
 		orders.add(ord);
-		return ord; 
+		return ord;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public List<Order> getOrders() {
 		return orders;
 	}
