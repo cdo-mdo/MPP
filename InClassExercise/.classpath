@@ -6,14 +6,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="C:/Cuong/Downloads/jfx/javafx-sdk-21.0.4/lib/javafx.base.jar"/>
-	<classpathentry kind="lib" path="C:/Cuong/Downloads/jfx/javafx-sdk-21.0.4/lib/javafx.controls.jar"/>
-	<classpathentry kind="lib" path="C:/Cuong/Downloads/jfx/javafx-sdk-21.0.4/lib/javafx.fxml.jar"/>
-	<classpathentry kind="lib" path="C:/Cuong/Downloads/jfx/javafx-sdk-21.0.4/lib/javafx.graphics.jar"/>
-	<classpathentry kind="lib" path="C:/Cuong/Downloads/jfx/javafx-sdk-21.0.4/lib/javafx.media.jar"/>
-	<classpathentry kind="lib" path="C:/Cuong/Downloads/jfx/javafx-sdk-21.0.4/lib/javafx.swing.jar"/>
-	<classpathentry kind="lib" path="C:/Cuong/Downloads/jfx/javafx-sdk-21.0.4/lib/javafx.web.jar"/>
-	<classpathentry kind="lib" path="C:/Cuong/Downloads/jfx/javafx-sdk-21.0.4/lib/javafx-swt.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="C:/Cuong/training/MIU/MPP/jfxrt.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
