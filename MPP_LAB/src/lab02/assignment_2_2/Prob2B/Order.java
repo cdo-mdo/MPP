@@ -6,12 +6,12 @@ import java.util.List;
 public class Order {
 	private String orderNumber;
 	List<OrderLine> orderLines;
-	
+
 	public Order(String number) {
 		this.orderNumber = number;
 		orderLines = new ArrayList<>();
 	}
-	
+
 	public void addOderLine() {
 		OrderLine orderLine = new OrderLine(this);
 		orderLines.add(orderLine);

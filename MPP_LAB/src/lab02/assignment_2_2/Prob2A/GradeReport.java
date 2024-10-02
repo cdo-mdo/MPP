@@ -1,7 +1,9 @@
 package lab02.assignment_2_2.Prob2A;
 
 public class GradeReport {
-	Student student;
+	private Student student;
+
+	// Constructor at package scope
 	GradeReport(Student student) {
 		this.student = student;
 	}
