@@ -1,19 +1,10 @@
 package lab03.assignment_3_4;
 
 public class Admin {
-	public static double computeTotalRent(Object[] properties) {
+	public static double computeTotalRent(Properties[] properties) {
 		double totalRent = 0;
-		for (Object o : properties) {
-			if (o instanceof House) {
-				House h = (House) o;
-				totalRent += h.computeRent();
-			} else if (o instanceof Condo) {
-				Condo h = (Condo) o;
-				totalRent += h.computeRent();
-			} else if (o instanceof Trailer) {
-				Trailer h = (Trailer) o;
-				totalRent += h.computeRent();
-			}
+		for (Properties property: properties) {
+			totalRent += property.computeRent();
 		}
 		return totalRent;
 	}
