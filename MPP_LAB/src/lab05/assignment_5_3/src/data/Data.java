@@ -1,4 +1,4 @@
-package data;
+package lab05.assignment_5_3.src.data;
 
 import java.util.HashMap;
 
@@ -10,7 +10,8 @@ public interface Data {
 		}
 		final static long serialVersionUID = 1L;
 	};
-	
+
 	HashMap<String, String> getGrades();
+
 	HashMap<String, String> getTeacherRemarks();
 }

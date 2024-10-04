@@ -1,9 +1,9 @@
-package lesson5.labs.prob4.extpackage;
+package lab05.assignment_5_4.extpackage;
 
 import java.time.LocalDate;
 
-import lesson5.labs.prob4.Customer;
-import lesson5.labs.prob4.Order;
+import lab05.assignment_5_4.Customer;
+import lab05.assignment_5_4.Order;
 
 public class Main {
 	public static void main(String[] args) {
@@ -19,5 +19,3 @@ public class Main {
 		System.out.println(cust.getOrders());
 	}
 }
-
-		

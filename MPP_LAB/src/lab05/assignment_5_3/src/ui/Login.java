@@ -1,4 +1,4 @@
-package ui;
+package lab05.assignment_5_3.src.ui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -16,7 +16,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-import control.Control;
+import lab05.assignment_5_3.src.control.Control;
 
 @SuppressWarnings("serial")
 public class Login extends JFrame {
@@ -27,27 +27,32 @@ public class Login extends JFrame {
 	private JTextArea gradesData;
 	private JTextField userText;
 	private JTextField pwdText;
+
 	public void setMessage(String s) {
 		label.setText(s);
 	}
+
 	public String getUserName() {
 		return userText.getText();
 	}
+
 	public String getPassword() {
 		return pwdText.getText();
 	}
+
 	public Login() {
 		initializeWindow();
 		JPanel mainPanel = new JPanel();
 		defineTopPanel();
 		defineMiddlePanel();
 		defineLowerPanel();
-		mainPanel.setLayout(new BorderLayout(12,12));
+		mainPanel.setLayout(new BorderLayout(12, 12));
 		mainPanel.add(topPanel, BorderLayout.NORTH);
 		mainPanel.add(middlePanel, BorderLayout.CENTER);
 		mainPanel.add(lowerPanel, BorderLayout.SOUTH);
 		getContentPane().add(mainPanel);
 	}
+
 	private void defineTopPanel() {
 		topPanel = new JPanel();
 		topPanel.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 5));
@@ -55,15 +60,16 @@ public class Login extends JFrame {
 		label.setForeground(Color.BLUE.darker().darker());
 		label.setFont(new Font("Tahoma", Font.BOLD, 16));
 		topPanel.add(label);
-		
+
 	}
-	private void defineMiddlePanel(){
-		middlePanel=new JPanel();
+
+	private void defineMiddlePanel() {
+		middlePanel = new JPanel();
 		middlePanel.setLayout(new BorderLayout());
 		JPanel upper = new JPanel();
 		JPanel lower = new JPanel();
-		upper.setLayout(new FlowLayout(FlowLayout.LEFT,15,4));
-		lower.setLayout(new FlowLayout(FlowLayout.LEFT,15,4));
+		upper.setLayout(new FlowLayout(FlowLayout.LEFT, 15, 4));
+		lower.setLayout(new FlowLayout(FlowLayout.LEFT, 15, 4));
 		JLabel username = new JLabel("Username");
 		JLabel password = new JLabel("Password");
 		password.setPreferredSize(username.getPreferredSize());
@@ -75,15 +81,12 @@ public class Login extends JFrame {
 		lower.add(pwdText);
 		middlePanel.add(upper, BorderLayout.NORTH);
 		middlePanel.add(lower, BorderLayout.CENTER);
-		
-		
+
 	}
-		
-	
 
 	public void defineLowerPanel() {
 		lowerPanel = new JPanel();
-		lowerPanel.setLayout(new BorderLayout(8,8));
+		lowerPanel.setLayout(new BorderLayout(8, 8));
 		JPanel upper = new JPanel();
 		JPanel lower = new JPanel();
 		upper.setLayout(new FlowLayout(FlowLayout.RIGHT));
@@ -99,34 +102,32 @@ public class Login extends JFrame {
 		lowerPanel.add(upper, BorderLayout.NORTH);
 		lowerPanel.add(lower, BorderLayout.CENTER);
 	}
-	
+
 	private void initializeWindow() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setTitle("Grades");	
+		setTitle("Grades");
 		centerFrameOnDesktop(this);
-		setSize(320,240); 
+		setSize(320, 240);
 		setResizable(false);
 	}
-	
+
 	public static void centerFrameOnDesktop(Component f) {
-	        final int SHIFT_AMOUNT = 0;
-	        Toolkit toolkit = Toolkit.getDefaultToolkit();
-	        int height = toolkit.getScreenSize().height;
-	        int width  = toolkit.getScreenSize().width;
-	        int frameHeight = f.getSize().height;
-	        int frameWidth  = f.getSize().width;
-	        f.setLocation(((width-frameWidth)/2)-SHIFT_AMOUNT, (height-frameHeight)/3);    
-	    }
-	
+		final int SHIFT_AMOUNT = 0;
+		Toolkit toolkit = Toolkit.getDefaultToolkit();
+		int height = toolkit.getScreenSize().height;
+		int width = toolkit.getScreenSize().width;
+		int frameHeight = f.getSize().height;
+		int frameWidth = f.getSize().width;
+		f.setLocation(((width - frameWidth) / 2) - SHIFT_AMOUNT, (height - frameHeight) / 3);
+	}
+
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable()
-		{
+		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				Login l = new Login();
 				l.setVisible(true);
 			}
 		});
 	}
-	
-	
+
 }

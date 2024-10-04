@@ -1,4 +1,4 @@
-package lesson5.labs.prob1.rulesets;
+package lab05.assignment_5_1.prob1.rulesets;
 
 import java.awt.Component;
 

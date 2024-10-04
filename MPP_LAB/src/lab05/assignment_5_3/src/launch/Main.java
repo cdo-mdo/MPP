@@ -1,4 +1,4 @@
-package launch;
+package lab05.assignment_5_3.src.launch;
 
 public class Main {
 

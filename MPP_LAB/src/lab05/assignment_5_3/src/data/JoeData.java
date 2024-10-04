@@ -1,4 +1,4 @@
-package data;
+package lab05.assignment_5_3.src.data;
 
 import java.util.HashMap;
 
@@ -15,11 +15,11 @@ public class JoeData implements Data {
 		remarks.put("Mr Thompson", "Joe tries very hard.");
 		remarks.put("Ms Stevens", "Joe does not seem to have a first language.");
 	}
-	
+
 	public HashMap<String, String> getGrades() {
 		return grades;
 	}
-	
+
 	public HashMap<String, String> getTeacherRemarks() {
 		return remarks;
 	}
