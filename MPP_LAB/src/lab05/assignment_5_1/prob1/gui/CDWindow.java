@@ -29,6 +29,18 @@ public class CDWindow extends JFrame {
 	private JTextField titleField;
 	private JTextField priceField;
 	private static final long serialVersionUID = 1L;
+	
+	public String getArtist() {
+		return artistField.getText();
+	}
+	
+	public String getTitle() {
+		return titleField.getText();
+	}
+	
+	public String getPrice() {
+		return priceField.getText();
+	}
 
 	public CDWindow() {
 		initializeWindow();
@@ -121,7 +133,14 @@ public class CDWindow extends JFrame {
 
 	class ButtonListener implements ActionListener {
 		public void actionPerformed(ActionEvent evt) {
-			JOptionPane.showMessageDialog(CDWindow.this, "Still need to check CD rules!");
+		try {
+			RuleSet rules = RuleSetFactory.getRuleSet(CDWindow.this);
+			rules.applyRules(CDWindow.this);
+		}
+		catch (RuleException e) {
+			JOptionPane.showMessageDialog(CDWindow.this, e.getMessage());
+		}
+			
 		}
 	}
 

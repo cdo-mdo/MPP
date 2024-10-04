@@ -29,6 +29,18 @@ public class BookWindow extends JFrame {
 	private JTextField titleField;
 	private JTextField priceField;
 	private static final long serialVersionUID = 1L;
+	
+	public String getISBN() {
+		return isbnField.getText();
+	}
+	
+	public String getTitle() {
+		return titleField.getText();
+	}
+	
+	public String getPrice() {
+		return priceField.getText();
+	}
 
 	public BookWindow() {
 		initializeWindow();
@@ -122,10 +134,17 @@ public class BookWindow extends JFrame {
 
 	class ButtonListener implements ActionListener {
 		public void actionPerformed(ActionEvent evt) {
-			JOptionPane.showMessageDialog(BookWindow.this, "Still need to check book rules!");
+			
+			try {
+				RuleSet rules = RuleSetFactory.getRuleSet(BookWindow.this);
+				rules.applyRules(BookWindow.this);
+			}
+			catch (RuleException e) {
+				JOptionPane.showMessageDialog(BookWindow.this, e.getMessage());
+			}
 		}
 	}
-
+	
 	class BackListener implements ActionListener {
 		public void actionPerformed(ActionEvent evt) {
 

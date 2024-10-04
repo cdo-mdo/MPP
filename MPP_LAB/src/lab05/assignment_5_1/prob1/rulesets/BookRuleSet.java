@@ -1,8 +1,10 @@
 package lab05.assignment_5_1.prob1.rulesets;
 
 import java.awt.Component;
+import java.util.ArrayList;
+import java.util.List;
 
-import lab05.assignment_5_1.prob1.gui.*;
+import lab05.assignment_5_1.prob1.gui.BookWindow;
 
 /**
  * Rules: 1. All fields must be nonempty 2. Isbn must be numeric and consist of
@@ -12,12 +14,25 @@ import lab05.assignment_5_1.prob1.gui.*;
  * must be a number greater than 0.49.
  *
  */
-public class BookRuleSet implements RuleSet {
+public class BookRuleSet extends Rules implements RuleSet {
 
+	private BookWindow bw;
+	
 	@Override
 	public void applyRules(Component ob) throws RuleException {
-		// TODO Auto-generated method stub
 
+		bw = (BookWindow) ob;
+		nonEmptyRule();
+		isbnRule(bw.getISBN());
+		priceRule(bw.getPrice());
 	}
-
+	
+	private void nonEmptyRule() throws RuleException {
+		List<String> strs = new ArrayList<>();
+		strs.add(bw.getISBN());
+		strs.add(bw.getTitle());
+		strs.add(bw.getPrice());
+		nonEmptyRule(strs);
+	}
+	
 }
