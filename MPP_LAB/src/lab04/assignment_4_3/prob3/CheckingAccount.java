@@ -21,16 +21,14 @@ public class CheckingAccount extends Account {
 		return balance;
 	}
 
-	public CheckingAccount(String accId, double fee, double startBalance) {
+	private CheckingAccount(String accId, double fee, double startBalance) {
 		this.accId = accId;
 		this.monthlyFee = fee;
 		this.balance = startBalance;
 	}
 	
-	public CheckingAccount(Employee employee, String accId, double fee, double startBalance) {
+	CheckingAccount(Employee employee, String accId, double fee, double startBalance) {
+		this(accId, fee, startBalance);
 		this.employee = employee;
-		this.accId = accId;
-		this.monthlyFee = fee;
-		this.balance = startBalance;
 	}
 }

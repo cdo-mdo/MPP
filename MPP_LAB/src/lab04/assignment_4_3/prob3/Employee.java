@@ -15,6 +15,16 @@ public class Employee {
 		accounts.add(acct);
 	}
 	
+	public void addCheckingAccount(String accId, double fee, double startBalance) {
+		Account account = new CheckingAccount(this, accId, fee, startBalance);
+		accounts.add(account);
+	}
+	
+	public void addSavingsAccount(String accId, double interestRate, double startBalance) {
+		Account account = new SavingsAccount(this, accId,  interestRate, startBalance);
+		accounts.add(account);
+	}
+	
 	public Employee(String name) {
 		this.name = name;
 		accounts = new ArrayList<>();

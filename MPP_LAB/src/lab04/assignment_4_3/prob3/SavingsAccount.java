@@ -21,17 +21,15 @@ public class SavingsAccount extends Account {
 		return balance;
 	}
 	
-	public SavingsAccount(String accId, double interestRate, double startBalance) {
+	private SavingsAccount(String accId, double interestRate, double startBalance) {
 		this.accId = accId;
 		this.interestRate = interestRate;
 		this.balance = startBalance;	
 	}
 	
-	public SavingsAccount(Employee employee, String accId, double interestRate, double startBalance) {
+	SavingsAccount(Employee employee, String accId, double interestRate, double startBalance) {
+		this(accId, interestRate, startBalance);
 		this.employee = employee;
-		this.accId = accId;
-		this.interestRate = interestRate;
-		this.balance = startBalance;	
 	}
 
 }
