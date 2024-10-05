@@ -5,7 +5,12 @@ public class Duck {
 	protected QuackBehavior quackBehavior;
 	
 	public void quack() {
-		quackBehavior.quack();
+		if (quackBehavior != null) { 
+			quackBehavior.quack();
+		}
+		else {
+			System.out.println("	not sure how to quack");
+		}
 	}
 	
 	public void swim() {
@@ -17,7 +22,12 @@ public class Duck {
 	}
 	
 	public void fly() {
-		flyBehavior.fly();
+		if (flyBehavior != null) {
+			flyBehavior.fly();
+		}
+		else {
+			System.out.println("	not sure how to fly");
+		}
 	}
 	
 }
