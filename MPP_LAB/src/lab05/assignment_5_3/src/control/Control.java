@@ -59,14 +59,14 @@ public enum Control {
 				return;
 			}
 			remarks = new Remarks();
-			HashMap<String, String> rem = Data.dataMap.get("Joe").getTeacherRemarks();
+			HashMap<String, String> rem = Data.dataMap.get(username).getTeacherRemarks();
 			StringBuilder sb = new StringBuilder();
 			for (String key : rem.keySet()) {
 				sb.append(key + " : " + rem.get(key) + "\n");
 			}
 			remarks.setRemarks(sb.toString());
-			remarks.setTitle("Teacher Remarks for " + "Joe");
-			remarks.setHeading("Teacher Remarks for " + "Joe");
+			remarks.setTitle("Teacher Remarks for " + username);
+			remarks.setHeading("Teacher Remarks for " + username);
 			Control.INSTANCE.start.setMessage("");
 			Control.INSTANCE.start.setVisible(false);
 			remarks.setVisible(true);
@@ -83,14 +83,14 @@ public enum Control {
 				return;
 			}
 			grades = new Grades();
-			HashMap<String, String> gr = Data.dataMap.get("Joe").getGrades();
+			HashMap<String, String> gr = Data.dataMap.get(username).getGrades();
 			StringBuilder sb = new StringBuilder();
 			for (String key : gr.keySet()) {
 				sb.append(key + " : " + gr.get(key) + "\n");
 			}
 			grades.setGrades(sb.toString());
-			grades.setTitle("Grades for " + "Joe");
-			grades.setHeading("Grades for " + "Joe");
+			grades.setTitle("Grades for " + username);
+			grades.setHeading("Grades for " + username);
 			Control.INSTANCE.start.setMessage("");
 			Control.INSTANCE.start.setVisible(false);
 			grades.setVisible(true);
@@ -140,6 +140,7 @@ public enum Control {
 					Control.INSTANCE.start.setMessage("");
 					Control.INSTANCE.start.setVisible(false);
 					remarks.setVisible(true);
+					return;
 				}
 			}
 		}
