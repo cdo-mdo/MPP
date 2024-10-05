@@ -19,6 +19,7 @@ public enum Control {
 	String username;
 	Remarks remarks;
 	private boolean isLoggedIn = false;
+	private String next;
 
 	public boolean isLoggedIn() {
 		return isLoggedIn;
@@ -36,6 +37,8 @@ public enum Control {
 		frame.setVisible(false);
 		start.setMessage("");
 		start.setVisible(true);
+		isLoggedIn = false;
+		next = "";
 	}
 
 	class LoginListener implements ActionListener {
@@ -48,6 +51,13 @@ public enum Control {
 
 	class RemarksListener implements ActionListener {
 		public void actionPerformed(ActionEvent evt) {
+			if (isLoggedIn == false) {
+				login = new Login();
+				start.setVisible(false);
+				login.setVisible(true);
+				next = "remark";
+				return;
+			}
 			remarks = new Remarks();
 			HashMap<String, String> rem = Data.dataMap.get("Joe").getTeacherRemarks();
 			StringBuilder sb = new StringBuilder();
@@ -65,6 +75,13 @@ public enum Control {
 
 	class GradesListener implements ActionListener {
 		public void actionPerformed(ActionEvent evt) {
+			if (isLoggedIn == false) {
+				login = new Login();
+				start.setVisible(false);
+				login.setVisible(true);
+				next = "grade";
+				return;
+			}
 			grades = new Grades();
 			HashMap<String, String> gr = Data.dataMap.get("Joe").getGrades();
 			StringBuilder sb = new StringBuilder();
@@ -90,6 +107,40 @@ public enum Control {
 				Control.this.username = username;
 				Control.this.isLoggedIn = true;
 				login.setMessage("Successful login");
+				login.setVisible(false);
+				start.setVisible(true);
+				Control.INSTANCE.start.setMessage("Successful login");
+				if ("grade".equals(next)) {
+					
+					grades = new Grades();
+					HashMap<String, String> gr = Data.dataMap.get(username).getGrades();
+					StringBuilder sb = new StringBuilder();
+					for (String key : gr.keySet()) {
+						sb.append(key + " : " + gr.get(key) + "\n");
+					}
+					grades.setGrades(sb.toString());
+					grades.setTitle("Grades for " + username);
+					grades.setHeading("Grades for " + username);
+					Control.INSTANCE.start.setMessage("");
+					Control.INSTANCE.start.setVisible(false);
+					grades.setVisible(true);
+					start.setVisible(false);
+					return;
+				}
+				if ("remark".equals(next)) {
+					remarks = new Remarks();
+					HashMap<String, String> rem = Data.dataMap.get(username).getTeacherRemarks();
+					StringBuilder sb = new StringBuilder();
+					for (String key : rem.keySet()) {
+						sb.append(key + " : " + rem.get(key) + "\n");
+					}
+					remarks.setRemarks(sb.toString());
+					remarks.setTitle("Teacher Remarks for " + username);
+					remarks.setHeading("Teacher Remarks for " + username);
+					Control.INSTANCE.start.setMessage("");
+					Control.INSTANCE.start.setVisible(false);
+					remarks.setVisible(true);
+				}
 			}
 		}
 	}

@@ -24,7 +24,7 @@ public class Start extends JFrame {
 	private JPanel lowerPanel;
 	private JLabel label;
 	private JLabel messageBar;
-
+	
 	public void setMessage(String s) {
 		messageBar.setText(s);
 	}
