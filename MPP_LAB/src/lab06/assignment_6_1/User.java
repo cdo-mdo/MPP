@@ -6,14 +6,19 @@ public class User {
 		password = pwd;
 		authorization = auth;
 	}
+
 	public String username;
 	public String password;
 	public Auth authorization;
-	
+
 	public boolean equals(Object ob) {
-		if(ob == null) return false;
-		if(!(ob instanceof User)) return false;
-		User u = (User)ob;
-		return username.equals(u.username) && password.equals(u.password); 
+		if (ob == null) {
+			return false;
+		}
+		if (!(ob instanceof User)) {
+			return false;
+		}
+		User u = (User) ob;
+		return username.equals(u.username) && password.equals(u.password);
 	}
 }
