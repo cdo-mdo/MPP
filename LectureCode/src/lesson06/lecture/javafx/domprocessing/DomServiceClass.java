@@ -265,9 +265,13 @@ public class DomServiceClass implements DomInterface {
         //for the test, we create a file that stores id, phonenum and email address
         String n = System.getProperty("line.separator");
         try {           
-            DomInterface xml = new DomServiceClass("src/lesson6/lecture/javafx/domprocessing/test.xml");
+        	System.out.println(System.getProperty("user.dir"));
+        	
+        	DomInterface xml = new DomServiceClass("bin/lesson06/lecture/javafx/domprocessing/test.xml");
             List<String> names = new ArrayList<>();
             names.addAll(xml.extractLeafTagNames());
+            
+            
             
             System.out.println(n + "Here is a list of the tag names:");
             System.out.println(names + n);  
