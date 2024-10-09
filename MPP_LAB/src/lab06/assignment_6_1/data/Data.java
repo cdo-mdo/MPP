@@ -1,4 +1,4 @@
-package lab06.assignment_6_1;
+package lab06.assignment_6_1.data;
 
 import java.util.*;
 
@@ -32,6 +32,15 @@ public class Data {
 	}
 
 	public static Auth currentAuth = null;
+
+	public static User authenticate(String userName, String password) {
+		for (User user : logins) {
+			if (user.username.equals(userName) && user.password.equals(password)) {
+				return user;
+			}
+		}
+		return null;
+	}
 
 	public static List<User> logins = new ArrayList<>() {
 

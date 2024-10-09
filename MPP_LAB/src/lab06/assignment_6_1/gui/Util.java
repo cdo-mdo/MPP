@@ -1,4 +1,4 @@
-package lab06.assignment_6_1;
+package lab06.assignment_6_1.gui;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -8,6 +8,8 @@ import java.util.List;
 
 import javax.swing.JComponent;
 import javax.swing.JLabel;
+
+import lab06.assignment_6_1.data.User;
 
 public class Util {
 	public static final Color DARK_BLUE = Color.BLUE.darker();

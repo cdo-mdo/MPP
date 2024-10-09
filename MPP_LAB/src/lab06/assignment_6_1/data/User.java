@@ -1,4 +1,4 @@
-package lab06.assignment_6_1;
+package lab06.assignment_6_1.data;
 
 public class User {
 	public User(String username, String pwd, Auth auth) {

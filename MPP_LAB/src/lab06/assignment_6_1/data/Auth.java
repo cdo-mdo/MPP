@@ -1,4 +1,4 @@
-package lab06.assignment_6_1;
+package lab06.assignment_6_1.data;
 
 import java.io.Serializable;
 
