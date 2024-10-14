@@ -1,5 +1,5 @@
-package lesson7.labs.prob2;
+package lab07.assignment_7_2;
 
-public interface ClosedCurve {	
+public interface ClosedCurve {
 	double computePerimeter();
 }
