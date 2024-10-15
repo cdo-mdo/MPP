@@ -37,11 +37,14 @@ public class Employee {
 
 	@Override
 	public boolean equals(Object ob) {
-		if (ob == null)
+		if (ob == null) {
 			return false;
-		if (!(ob instanceof Employee))
+		}
+		if (!(ob instanceof Employee)) {
 			return false;
+		}
 		Employee emp = (Employee) ob;
+//		return emp.name.equals(name) && emp.salary == salary;
 		return emp.name.equals(name) && emp.salary == salary && emp.visited == visited;
 	}
 

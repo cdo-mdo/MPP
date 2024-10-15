@@ -31,7 +31,7 @@ public class Employee {
 	}
 
 	public boolean equals(Employee e) {
-		System.out.println("called when remove duplicate");
+//		System.out.println("called when remove duplicate");
 		return e.name.equals(name) && e.salary == salary;
 	}
 	

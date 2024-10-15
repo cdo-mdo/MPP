@@ -86,9 +86,6 @@ public class EmployeeInfo {
 			System.out.println("l1.size() = " + l1.size());
 			System.out.println("l2.size() = " + l2.size());
 			System.out.println("The list l1 has more elements than list l2");
-			System.out.println(
-					" - The reason is list l1 still contains element with the same name but difference in salary, for example (Richard, 50000) and (Richard, 60000)");
-			System.out.println(" - The function equals() in class Employee compares both name and salary to decide object Employee equal or not");
 
 			return false;
 		}

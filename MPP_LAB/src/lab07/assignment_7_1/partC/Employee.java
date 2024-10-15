@@ -42,14 +42,14 @@ public class Employee {
 		return emp.name.equals(name) && emp.salary == salary;
 	}
 	
-	@Override // !!!
-	public int hashCode() {
-		int sum = 0;
-		for (int i = 0; i < name.length(); ++i) {
-			sum += name.charAt(i);
-		}
-		sum += salary;
-		return sum;
-	}
+//	@Override // !!!
+//	public int hashCode() {
+//		int sum = 0;
+//		for (int i = 0; i < name.length(); ++i) {
+//			sum += name.charAt(i);
+//		}
+//		sum += salary;
+//		return sum;
+//	}
 
 }
