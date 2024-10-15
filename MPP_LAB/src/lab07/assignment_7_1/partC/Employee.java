@@ -32,12 +32,24 @@ public class Employee {
 
 	@Override
 	public boolean equals(Object ob) {
-		if (ob == null)
+		if (ob == null) {
 			return false;
-		if (!(ob instanceof Employee))
+		}
+		if (!(ob instanceof Employee)) {
 			return false;
+		}
 		Employee emp = (Employee) ob;
 		return emp.name.equals(name) && emp.salary == salary;
+	}
+	
+	@Override // !!!
+	public int hashCode() {
+		int sum = 0;
+		for (int i = 0; i < name.length(); ++i) {
+			sum += name.charAt(i);
+		}
+		sum += salary;
+		return sum;
 	}
 
 }

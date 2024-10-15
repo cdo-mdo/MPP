@@ -24,8 +24,9 @@ public class EmployeeInfo {
 	/** Returns true if e is in the list emps, false otherwise */
 	private static boolean inList(Employee e, List<Employee> emps) {
 		for (Employee emp : emps) {
-			if (e.equals(emp))
+			if (e.equals(emp)) {
 				return true;
+			}
 		}
 		return false;
 	}
@@ -81,6 +82,26 @@ public class EmployeeInfo {
 
 		List<Employee> answer = removeDuplicates(list);
 		System.out.println("Is answer correct? " + listsAreEqual(answer, dupsRemoved));
+		
+		Employee e1 = new Employee("Richard", 55000);
+		Employee e2 = new Employee("Richard", 55000);
+		
+		System.out.println("e1.equals(e2) = " + e1.equals(e2));
+		System.out.println("e1 == e2 = " + (e1 == e2));
+		System.out.println("e1.hashCode() == e2.hashCode() = " + (e1.hashCode() == e2.hashCode()));
+		
+		List<Employee> l1 = new ArrayList<>();
+		l1.add(e1);
+		List<Employee> l2 = new ArrayList<>();
+		l2.add(e2);
+		
+		System.out.println(l1.contains(e2));
+		
+		String str1 = "Richard";
+		String str2 = "Richard";
+		
+		System.out.println("hasCode str1 = " + str1.hashCode());
+		System.out.println("hasCode str2 = " + str2.hashCode());
 	}
 
 	/**
@@ -88,11 +109,23 @@ public class EmployeeInfo {
 	 * elements (this is just set equality)
 	 */
 	public static boolean listsAreEqual(List<Employee> l1, List<Employee> l2) {
-		if (l1.size() != l2.size())
+		if (l1.size() != l2.size()) {
 			return false;
+		}
+		for (Employee e1: l1) {
+			System.out.println("(" + e1.getName() + ", " + e1.getSalary() + ") " + e1.hashCode());
+		}
+		System.out.println("---------------------------------");
+		for (Employee e2: l2) {
+			System.out.println("(" + e2.getName() + ", " + e2.getSalary() + ") " + e2.hashCode());
+		}
+		
+		System.out.println("---------------------------------");
 		for (Employee e : l1) {
-			if (!l2.contains(e))
+			if (!l2.contains(e)) {
+				System.out.println("(" + e.getName() + ", " + e.getSalary() + ") " + e.hashCode());
 				return false;
+			}
 		}
 		return true;
 	}
