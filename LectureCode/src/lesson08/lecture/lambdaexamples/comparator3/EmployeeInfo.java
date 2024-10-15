@@ -6,20 +6,28 @@ import java.util.Comparator;
 import java.util.List;
 
 public class EmployeeInfo {
-	static enum SortMethod {BYNAME, BYSALARY};
-	public void sort(List<Employee> emps,  SortMethod method) {	
-		Collections.sort(emps, (e1,e2) ->
-		{
-			if(method == SortMethod.BYNAME) {
+	static enum SortMethod {
+		BYNAME, BYSALARY
+	};
+
+	public void sort(List<Employee> emps, SortMethod method) {
+		Collections.sort(emps, (e1, e2) -> {
+			if (method == SortMethod.BYNAME) {
 				return e1.name.compareTo(e2.name);
 			} else {
-				if(e1.salary == e2.salary) return 0;
-				else if(e1.salary < e2.salary) return -1;
-				else return 1;
+				if (e1.salary == e2.salary) {
+					return 0;
+				}
+				else if (e1.salary < e2.salary) {
+					return -1;
+				}
+				else {
+					return 1;
+				}
 			}
-		});			
+		});
 	}
-	
+
 	public static void main(String[] args) {
 		List<Employee> emps = new ArrayList<>();
 		emps.add(new Employee("Joe", 100000));
@@ -28,7 +36,7 @@ public class EmployeeInfo {
 		EmployeeInfo ei = new EmployeeInfo();
 		ei.sort(emps, EmployeeInfo.SortMethod.BYNAME);
 		System.out.println(emps);
-		//same instance
+		// same instance
 		ei.sort(emps, EmployeeInfo.SortMethod.BYSALARY);
 		System.out.println(emps);
 	}
