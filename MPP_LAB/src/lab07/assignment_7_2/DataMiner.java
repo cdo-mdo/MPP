@@ -11,15 +11,19 @@ public class DataMiner {
 		dm.objects.add(new Rectangle(5, 7));
 		dm.objects.add(new Rectangle(2, 9));
 		dm.objects.add(new Circle(6));
+		dm.objects.add(new EquilaterialTriangle(4));
+		dm.objects.add(new Ellipse(2, 5));
 		System.out.println(dm.computeAveragePerimeter());
 	}
 
 	// OO (good) way of performing computation
 	public double computeAveragePerimeter() {
-		if (objects == null || objects.isEmpty())
+		if (objects == null || objects.isEmpty()) {
 			return 0.0;
+		}
 		double sum = 0.0;
 		for (int i = 0; i < objects.size(); ++i) {
+			System.out.println(objects.get(i).computePerimeter());
 			sum += objects.get(i).computePerimeter();
 		}
 		return sum / objects.size();

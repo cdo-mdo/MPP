@@ -1,14 +1,8 @@
 package lab07.assignment_7_2;
 
-public final class Rectangle implements ClosedCurve {
+public final class Rectangle implements Polygon {
 	final private double width;
 	final private double length;
-
-	@Override
-	public double computePerimeter() {
-		double area = width * length;
-		return area;
-	}
 
 	public Rectangle(double width, double length) {
 		this.width = width;
@@ -22,4 +16,11 @@ public final class Rectangle implements ClosedCurve {
 	public double getLength() {
 		return length;
 	}
+
+	@Override
+	public double[] getSides() {
+		double[] sides = {this.width, this.length, this.width, this.length};
+		return sides;
+	}
+
 }
