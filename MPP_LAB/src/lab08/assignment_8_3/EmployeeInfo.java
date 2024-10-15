@@ -4,6 +4,9 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import lesson08.lecture.lambdaexamples.comparator3.Employee;
+import lesson08.lecture.lambdaexamples.comparator3.EmployeeInfo.SortMethod;
+
 public class EmployeeInfo {
 	static enum SortMethod {
 		BYNAME, BYSALARY
@@ -16,31 +19,24 @@ public class EmployeeInfo {
 	}
 
 	// Comparators are unaware of the value in method
-	public void sort(List<Employee> emps) {
-		class EmployeeComparator implements Comparator<Employee> {
-			@Override
-			public int compare(Employee e1, Employee e2) {
-				if (method == SortMethod.BYNAME) {
-					return e1.name.compareTo(e2.name);
+	public void sort(List<Employee> emps, SortMethod method) {
+		Collections.sort(emps, (e1, e2) -> {
+			if (method == SortMethod.BYNAME) {
+				return e1.name.compareTo(e2.name);
+			} else {
+				if (e1.salary == e2.salary) {
+					return 0;
+				}
+				else if (e1.salary < e2.salary) {
+					return -1;
 				}
 				else {
-					if (e1.salary == e2.salary) {
-						return 0;
-					}
-					else {
-						if (e1.salary < e2.salary) {
-							return -1;
-						}
-						else {
-							return 1;
-						}
-					}
+					return 1;
 				}
 			}
-		}
-		Collections.sort(emps, new EmployeeComparator());
+		});
 	}
-
+	
 	public static void main(String[] args) {
 		Employee joe1 = new Employee("Joe", 150000);
 		Employee joe2 = new Employee("Joe", 100000);
