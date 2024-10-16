@@ -1,5 +1,6 @@
 package lab09.assignment_9_1.dataaccess;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -21,8 +22,12 @@ public class DataAccessFacade implements DataAccess {
         BOOKS, MEMBERS, USERS;
     }
 
-    public static final String OUTPUT_DIR = System.getProperty("user.dir")
-            + "\\src\\lesson9\\labs\\prob1\\dataaccess\\storage";
+    public static final String OUTPUT_DIR = System.getProperty("user.dir") +
+            File.separator + "src" +
+            File.separator + "lab09" +
+            File.separator + "assignment_9_1" +
+            File.separator + "dataaccess" +
+            File.separator + "storage";
     public static final String DATE_PATTERN = "MM/dd/yyyy";
 
     @SuppressWarnings("unchecked")

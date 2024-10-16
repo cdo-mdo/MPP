@@ -3,6 +3,7 @@ package lab09.assignment_9_1.ui;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.util.Collections;
 import java.util.List;
 
@@ -61,7 +62,12 @@ public class LibrarySystem extends JFrame implements LibWindow {
 
     private void setPathToImage() {
         String currDirectory = System.getProperty("user.dir");
-        pathToImage = currDirectory + "\\src\\lesson9\\labs\\prob1\\ui\\library.jpg";
+        pathToImage = currDirectory +
+                "src" + File.separator +
+                "lab09" + File.separator +
+                "assignment_9_1" + File.separator +
+                "ui" + File.separator +
+                "library.jpg";
     }
 
     private void insertSplashImage() {
