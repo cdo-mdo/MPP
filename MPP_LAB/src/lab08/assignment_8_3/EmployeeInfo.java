@@ -4,9 +4,6 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import lesson08.lecture.lambdaexamples.comparator3.Employee;
-import lesson08.lecture.lambdaexamples.comparator3.EmployeeInfo.SortMethod;
-
 public class EmployeeInfo {
 	static enum SortMethod {
 		BYNAME, BYSALARY
