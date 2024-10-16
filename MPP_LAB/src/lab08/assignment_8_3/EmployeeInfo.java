@@ -6,50 +6,65 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import lesson08.lecture.lambdaexamples.comparator3.Employee;
+import lesson08.lecture.lambdaexamples.comparator3.EmployeeInfo.SortMethod;
+
 public class EmployeeInfo {
-	static enum SortMethod {BYNAME, BYSALARY};
-	private SortMethod method;
-	
-	public EmployeeInfo(SortMethod method) {
-		this.method = method;
-	}
-	//Comparators are unaware of the value in method
-	public void sort(List<Employee> emps) {
-		if(method == SortMethod.BYNAME) {
-			Collections.sort(emps, new EmployeeNameComparator());
-		}
-		else if(method == SortMethod.BYSALARY) {
-			Collections.sort(emps, new EmployeeSalaryComparator());
-		}
-	}
-	
-	public void sort(List<Employee> emps, final SortMethod method) {
-        class EmployeeComparator implements Comparator<Employee> {
-            @Override
-            public int compare(Employee e1, Employee e2) {
-                if (method == SortMethod.BYNAME) {
-                    return new EmployeeNameComparator().compare(e1, e2);
-                } else {
-                    return new EmployeeSalaryComparator().compare(e1, e2);
-                }
-            }
-        }
-        Collections.sort(emps, new EmployeeComparator());
+    static enum SortMethod {
+        BYNAME, BYSALARY
+    };
+
+    private SortMethod method;
+
+    public EmployeeInfo(SortMethod method) {
+        this.method = method;
     }
-	
-	public static void main(String[] args) {
-		Employee joe1 = new Employee("Joe", 150000);
-		Employee joe2 = new Employee("Joe", 100000);
-		
-		System.out.println(joe1.equals(joe2));
-		
-		EmployeeNameComparator nameComp = new EmployeeNameComparator();
-		System.out.println(nameComp.compare(joe1, joe2));
-		
-	}
+
+    // Comparators are unaware of the value in method
+    public void sort(List<Employee> emps) {
+        if (method == SortMethod.BYNAME) {
+            Collections.sort(emps, new EmployeeNameComparator());
+        } else if (method == SortMethod.BYSALARY) {
+            Collections.sort(emps, new EmployeeSalaryComparator());
+        }
+    }
+
+//	public void sort(List<Employee> emps, final SortMethod method) {
+//        class EmployeeComparator implements Comparator<Employee> {
+//            @Override
+//            public int compare(Employee e1, Employee e2) {
+//                if (method == SortMethod.BYNAME) {
+//                    return new EmployeeNameComparator().compare(e1, e2);
+//                } else {
+//                    return new EmployeeSalaryComparator().compare(e1, e2);
+//                }
+//            }
+//        }
+//        Collections.sort(emps, new EmployeeComparator());
+//    }
+
+    public void sort(List<Employee> emps, SortMethod method) {
+        Collections.sort(emps, (e1, e2) -> {
+            if (method == SortMethod.BYNAME) {
+                return new EmployeeNameComparator().compare(e1, e2);
+            } else {
+                return new EmployeeSalaryComparator().compare(e1, e2);
+            }
+        });
+    }
+
+    public static void main(String[] args) {
+        Employee joe1 = new Employee("Joe", 150000);
+        Employee joe2 = new Employee("Joe", 100000);
+
+        System.out.println(joe1.equals(joe2));
+
+        EmployeeNameComparator nameComp = new EmployeeNameComparator();
+        System.out.println(nameComp.compare(joe1, joe2));
+
+    }
 }
 
-	
 //	public static void main(String[] args) {
 //		List<Employee> emps = new ArrayList<>();
 //		emps.add(new Employee("Joe", 100000));
@@ -66,15 +81,10 @@ public class EmployeeInfo {
 //		EmployeeNameComparator c = new EmployeeNameComparator();
 //		System.out.println("joe equals joe2? " + (c.compare(joe, joe2)==0) );
 
-		
-		/*
-		EmployeeInfo ei = new EmployeeInfo(EmployeeInfo.SortMethod.BYNAME);
-		ei.sort(emps);
-		System.out.println(emps);
-		ei = new EmployeeInfo(EmployeeInfo.SortMethod.BYSALARY);
-		ei.sort(emps);
-		System.out.println(emps);*/
-	//}
-
-
-	
+/*
+ * EmployeeInfo ei = new EmployeeInfo(EmployeeInfo.SortMethod.BYNAME);
+ * ei.sort(emps); System.out.println(emps); ei = new
+ * EmployeeInfo(EmployeeInfo.SortMethod.BYSALARY); ei.sort(emps);
+ * System.out.println(emps);
+ */
+// }
