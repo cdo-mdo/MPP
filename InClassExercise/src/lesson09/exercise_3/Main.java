@@ -1,12 +1,14 @@
 package lesson09.exercise_3;
+
 import java.util.*;
+
 public class Main {
 
-	//Use Comparator.comparing and thenComparing to sort 
-	//the list by balance and then by ownerName
-	//Collect your stream into a list and print the sorted 
-	//result to the console
-	public static void main(String[] args) {
+    // Use Comparator.comparing and thenComparing to sort
+    // the list by balance and then by ownerName
+    // Collect your stream into a list and print the sorted
+    // result to the console
+    public static void main(String[] args) {
 		List<Account> accounts = new ArrayList<Account>() {
 			{
 				add(new Account("Bob", 5000, 1001));
@@ -19,7 +21,12 @@ public class Main {
 		};
 		
 		//sorting code here
+		List<Account> sorted = accounts.stream()
+		    .sorted(Comparator.comparing((Acocunt a) -> a.getBalance()).thenComparing((Account a) -> a.getOwnerName());
+		    
+		accounts.forEach(null)    
 
 	}
-
+    
+    
 }
