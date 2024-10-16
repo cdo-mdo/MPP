@@ -3,6 +3,7 @@ package lab08.assignment_8_3;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class EmployeeInfo {
@@ -21,6 +22,21 @@ public class EmployeeInfo {
 			Collections.sort(emps, new EmployeeSalaryComparator());
 		}
 	}
+	
+	public void sort(List<Employee> emps, final SortMethod method) {
+        class EmployeeComparator implements Comparator<Employee> {
+            @Override
+            public int compare(Employee e1, Employee e2) {
+                if (method == SortMethod.BYNAME) {
+                    return new EmployeeNameComparator().compare(e1, e2);
+                } else {
+                    return new EmployeeSalaryComparator().compare(e1, e2);
+                }
+            }
+        }
+        Collections.sort(emps, new EmployeeComparator());
+    }
+	
 	public static void main(String[] args) {
 		Employee joe1 = new Employee("Joe", 150000);
 		Employee joe2 = new Employee("Joe", 100000);

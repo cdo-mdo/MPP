@@ -3,16 +3,16 @@ package lab08.assignment_8_3;
 import java.util.Comparator;
 
 public class EmployeeSalaryComparator implements Comparator<Employee> {
-	@Override
-	public int compare(Employee e1, Employee e2) {
-		if (e1.salary == e2.salary) {
-		    return new EmployeeNameComparator().compare(e1, e2);
-		} else {
-			if (e1.salary < e2.salary) {
-				return -1;
-			} else {
-				return 1;
-			}
-		}
-	}
+    @Override
+    public int compare(Employee e1, Employee e2) {
+        if (e1.salary == e2.salary) {
+            return new EmployeeNameComparator().compare(e1, e2);
+        } else {
+            if (e1.salary < e2.salary) {
+                return -1;
+            } else {
+                return 1;
+            }
+        }
+    }
 }
