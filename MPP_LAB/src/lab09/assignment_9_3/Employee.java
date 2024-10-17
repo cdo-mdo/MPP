@@ -57,6 +57,9 @@ public class Employee {
         // expected output:
         // [[Jim, 100000], [Jim, 75000], [Jim, 70000], [Joe, 59000], [Joe, 50000],
         // [Rich, 88000], [Steve, 55000], [Tom, 80000]]
-        System.out.println(list.stream().sorted(Comparator.comparing(Employee::getName).thenComparing(Employee::getSalary)).collect(Collectors.toList()));
+        System.out.println(list.stream()
+                .sorted(Comparator.comparing(Employee::getName).thenComparingInt(Employee::getSalary))
+//                .sorted((Comparator.comparing(Employee::getSalary)).reversed())
+                .collect(Collectors.toList()));
     }
 }
