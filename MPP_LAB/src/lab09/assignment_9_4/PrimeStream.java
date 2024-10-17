@@ -23,6 +23,15 @@ public class PrimeStream {
         }
     }
     
+    static void generatePrime1() {
+        Stream.iterate(2, x -> {
+                while (!isPrime(x)) {
+                    x++;
+                }
+                return x;
+        });
+    }
+    
     static void generatePrimes() {
         Stream<Integer> primes = Stream.iterate(1, n -> n + 1);
         primes.forEach(PrimeStream::printIfPrime);
