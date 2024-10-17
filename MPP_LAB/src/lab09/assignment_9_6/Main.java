@@ -3,6 +3,7 @@ package lab09.assignment_9_6;
 import java.util.*;
 import java.util.function.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Main {
 
@@ -13,7 +14,7 @@ public class Main {
         List<String> stringList = Arrays.asList("cba", "efg", "doe", "fie", "set");
         // expected output: [cba, fie, doe, efg, set]
         ordering2(stringList);
-
+        
     }
 
     // Orders the integers according to this pattern:
@@ -21,8 +22,21 @@ public class Main {
     // Using this ordering, this method sorts the list as part of
     // a stream pipeline, and prints to the console
     public static void ordering1(List<Integer> list) {
-        System.out.println(/* implement */);
+//        System.out.println(/* implement */);
+        
+//        System.out.println(list.stream().sorted());
+        
+//        List<List<Integer>> sortedList = Stream.of(list).sorted().collect(Collectors.toList());
+        
+        List<Integer> sortedList = list.stream().sorted().collect(Collectors.toList());
+        System.out.println(sortedList);
+        
 
+    }
+    
+    static String reverse(String str) {
+        StringBuilder buf = new StringBuilder(str);
+        return buf.reverse().toString();
     }
 
     // Orders words by first reversing each and comparing
@@ -36,6 +50,10 @@ public class Main {
     public static void ordering2(List<String> words) {
         System.out.println(/* implement */);
 
+        List<String> sortedList = words.stream()
+            .sorted(Comparator.comparing((String str1) -> reverse(str1))).collect(Collectors.toList());
+        
+        System.out.println(sortedList);
     }
 
 }
