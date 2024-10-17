@@ -2,6 +2,7 @@ package lab09.assignment_9_7;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class Main {
 	List<OrderItem> orderItems = new ArrayList<>();
@@ -12,19 +13,30 @@ public class Main {
 		   m.findProduct("Flowers"));
 	}
 	
+//	private boolean findProduct(String prodName) {
+//		for(OrderItem item : orderItems) {
+//			if(item != null) {
+//				Product p=item.getProduct();
+//				if(p != null) {
+//					String name = p.getProductName();
+//					if(name != null) {
+//						if(name.equals(prodName)) return true;
+//					}
+//				}
+//			}
+//		}
+//		return false;
+//	}
+	
 	private boolean findProduct(String prodName) {
-		for(OrderItem item : orderItems) {
-			if(item != null) {
-				Product p=item.getProduct();
-				if(p != null) {
-					String name = p.getProductName();
-					if(name != null) {
-						if(name.equals(prodName)) return true;
-					}
-				}
-			}
-		}
-		return false;
+	    for (OrderItem item : orderItems) {
+	        if (Optional.ofNullable(item).map(x -> x.getProduct())
+	            .map(x -> x.getProductName())
+	            .orElse("").equals(prodName)) {
+	            return true;
+	        }
+	    }
+	    return false;
 	}
 	
 	private void loadOrderItemData() {
