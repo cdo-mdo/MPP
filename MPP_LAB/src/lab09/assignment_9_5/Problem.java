@@ -6,10 +6,20 @@ import java.util.stream.Collectors;
 
 public class Problem {
 
+    static boolean inList(String str, List<String> list) {
+        for (String s: list) {
+            if (s.equals(str)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
     // Returns a list of those strings which belong to both of the two input lists
     public static List<String> elementsInBoth(List<String> list1, List<String> list2) {
-        // implement
-        return null;
+        return list1.stream()
+            .filter(str -> inList(str, list2))
+            .collect(Collectors.toList());
     }
 
     // Returns a list, in sorted order, of the zipcodes, of those Customers
@@ -18,8 +28,13 @@ public class Problem {
     // contain
     // duplicate elements.
     public static List<String> getZipsOfSpecialCustomers(List<Customer> list) {
-        // implement
-        return null;
+        return list.stream()
+            .filter(customer -> customer.getCity().length() > 6)
+            .filter(customer -> customer.getCity().contains("" + 'e'))
+            .map(customer -> customer.getZip())
+            .distinct()
+            .sorted()
+            .collect(Collectors.toList());
     }
 
     // test methods
