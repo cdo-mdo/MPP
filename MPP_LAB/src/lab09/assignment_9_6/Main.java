@@ -22,13 +22,15 @@ public class Main {
     // Using this ordering, this method sorts the list as part of
     // a stream pipeline, and prints to the console
     public static void ordering1(List<Integer> list) {
-//        System.out.println(/* implement */);
+        System.out.println(/* implement */);
         
-//        System.out.println(list.stream().sorted());
         
-//        List<List<Integer>> sortedList = Stream.of(list).sorted().collect(Collectors.toList());
         
-        List<Integer> sortedList = list.stream().sorted().collect(Collectors.toList());
+        List<Integer> sortedList = list.stream()
+                .sorted(Comparator.comparing((Integer i) -> Math.abs(i)).thenComparing((i) -> i)).collect(Collectors.toList());
+        
+//        List<Integer> sortedList = list.stream()
+//                .sorted(Comparator.comparing(Math::abs)).thenComparing((i) -> i).collect(Collectors.toList());
         System.out.println(sortedList);
         
 
@@ -48,12 +50,13 @@ public class Main {
     // Using this ordering, this method sorts the list as part of
     // a stream pipeline, and prints to the console
     public static void ordering2(List<String> words) {
-        System.out.println(/* implement */);
+        System.out.println(words.stream()
+                .sorted(Comparator.comparing((String str) -> reverse(str))).collect(Collectors.toList()));
 
-        List<String> sortedList = words.stream()
-            .sorted(Comparator.comparing((String str1) -> reverse(str1))).collect(Collectors.toList());
+//        List<String> sortedList = words.stream()
+//            .sorted(Comparator.comparing((String str1) -> reverse(str1))).collect(Collectors.toList());
         
-        System.out.println(sortedList);
+//        System.out.println(sortedList);
     }
 
 }
