@@ -9,7 +9,7 @@ public class PrimeStream {
         if (n <= 1) {
             return false;
         }
-        for (int i = 2; i < (int)Math.sqrt((double)n); ++i) {
+        for (int i = 2; i <= (int)Math.sqrt((double)n); ++i) {
             if (n % i == 0) {
                 return false;
             }
@@ -23,9 +23,22 @@ public class PrimeStream {
         }
     }
     
-    public static void main(String[] args) {
-        isPrime(5);
+    static void generatePrimes() {
         Stream<Integer> primes = Stream.iterate(1, n -> n + 1);
-        primes.limit(100).forEach(PrimeStream::printIfPrime);
+        primes.forEach(PrimeStream::printIfPrime);
+    }
+    
+    static void printFirstNPrime(int count) {
+        Stream.iterate(1, n -> n + 1)
+            .filter(PrimeStream::isPrime).limit(count).forEach(System.out::println);
+        
+    }
+    
+    public static void main(String[] args) {
+//        generatePrimes();
+        
+        printFirstNPrime(5);
+        System.out.println("==========");
+        printFirstNPrime(10);
     }
 }
