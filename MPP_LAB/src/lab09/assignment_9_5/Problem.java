@@ -30,7 +30,7 @@ public class Problem {
     public static List<String> getZipsOfSpecialCustomers(List<Customer> list) {
         return list.stream()
             .filter(customer -> customer.getCity().length() > 6)
-            .filter(customer -> customer.getCity().contains("" + 'e'))
+            .filter(customer -> customer.getCity().indexOf('e') == -1)
             .map(customer -> customer.getZip())
             .distinct()
             .sorted()
