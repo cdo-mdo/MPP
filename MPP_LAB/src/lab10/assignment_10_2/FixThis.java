@@ -2,29 +2,37 @@ package lab10.assignment_10_2;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class FixThis {
     /* This method creates a compiler error -- try to fix it */
-    /// List<String> processList(List<String> list) {
-
-//	    return list.stream()
-//	    		   .map(x -> doNothingIfShort(x)) // This will fail to compile 
-//	               .collect(Collectors.toList());
-
-    // }
+    List<String> processList(List<String> list) {
+        return list.stream().map(x -> wrapper(x)).collect(Collectors.toList());
+    }
+    
+    String wrapper(String input) {
+        try {
+            return doNothingIfShort(input);
+        }
+        catch (InputTooLongException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 
     String doNothingIfShort(String input) throws InputTooLongException {
-        if (input.length() > 3)
+        if (input.length() > 3) {
             throw new InputTooLongException();
-        else
+        } else {
             return input;
+        }
     }
 
     public static void main(String[] args) {
         FixThis ft = new FixThis();
         List<String> words1 = Arrays.asList("not", "too", "big", "yet");
-        // System.out.println(ft.processList(words1));
+        System.out.println(ft.processList(words1));
     }
 
     class InputTooLongException extends Exception {
