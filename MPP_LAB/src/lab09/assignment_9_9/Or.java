@@ -31,7 +31,8 @@ public class Or {
     public static String printStringStream() {
         Stream<String> strings = Stream.of("Bill", "Thomas", "Mary");
        
-        return strings.reduce("", (a, b) -> a + ", " + b);
+//        return strings.reduce("", (a, b) -> a + ", " + b);
+        return strings.collect(Collectors.joining(", "));
     }
     
     public static void printMaxMin() {
