@@ -11,6 +11,7 @@ public class Main {
                 new Employee("Thomas", "Blake", 111000), new Employee("Alice", "Richards", 101000),
                 new Employee("Donald", "Trump", 100000));
 
+        System.out.println(LambdaLibrary.LIST_FULL_NAMES.apply(list, 100000, 'M'));
     }
 
 }
