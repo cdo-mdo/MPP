@@ -9,5 +9,6 @@ public class LambdaLibrary {
             .filter(emp -> emp.getSalary() > salaryLevel)
             .filter(emp -> emp.getLastName().charAt(0) > letter)
             .map(emp -> emp.getFirstName() + ' ' + emp.getLastName())
+            .sorted()
             .collect(Collectors.toList());
 }
