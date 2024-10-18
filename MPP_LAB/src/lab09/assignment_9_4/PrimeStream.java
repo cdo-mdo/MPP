@@ -37,10 +37,21 @@ public class PrimeStream {
         primes.forEach(PrimeStream::printIfPrime);
     }
     
+//    static void printFirstNPrime(int count) {
+//        Stream.iterate(1, n -> n + 1)
+//            .filter(PrimeStream::isPrime).limit(count).forEach(System.out::println);
+//        
+//    }
+    
     static void printFirstNPrime(int count) {
-        Stream.iterate(1, n -> n + 1)
-            .filter(PrimeStream::isPrime).limit(count).forEach(System.out::println);
-        
+        Stream.iterate(1, n -> {
+            while (!isPrime(n)) {
+                n = n + 1;
+            }
+            return n;
+        })
+        .limit(count)
+        .forEach(System.out::println);
     }
     
     public static void main(String[] args) {
@@ -49,5 +60,7 @@ public class PrimeStream {
         printFirstNPrime(5);
         System.out.println("==========");
         printFirstNPrime(10);
+        
+        generatePrime1();
     }
 }
