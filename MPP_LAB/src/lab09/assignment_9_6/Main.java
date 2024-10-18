@@ -22,16 +22,17 @@ public class Main {
     // Using this ordering, this method sorts the list as part of
     // a stream pipeline, and prints to the console
     public static void ordering1(List<Integer> list) {
-        System.out.println(/* implement */);
+        System.out.println(list.stream()
+                .sorted(Comparator.comparing((Integer i) -> Math.abs(i)).thenComparing((i) -> i)).collect(Collectors.toList()));
         
         
         
-        List<Integer> sortedList = list.stream()
-                .sorted(Comparator.comparing((Integer i) -> Math.abs(i)).thenComparing((i) -> i)).collect(Collectors.toList());
+//        List<Integer> sortedList = list.stream()
+//                .sorted(Comparator.comparing((Integer i) -> Math.abs(i)).thenComparing((i) -> i)).collect(Collectors.toList());
         
 //        List<Integer> sortedList = list.stream()
 //                .sorted(Comparator.comparing(Math::abs)).thenComparing((i) -> i).collect(Collectors.toList());
-        System.out.println(sortedList);
+//        System.out.println(sortedList);
         
 
     }
