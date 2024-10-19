@@ -56,10 +56,10 @@ public class BugReportGenerator {
                     names.add(name);    
                 }
                 StringBuilder buf = new StringBuilder();
-                buf.append("  reported by: ");buf.append(reportedBy + "\n");
-                buf.append("  classname: ");buf.append(cl.getClass().getCanonicalName() + "\n");
-                buf.append("  description: ");buf.append(description + "\n");
-                buf.append("  severity: ");buf.append(severity + "\n");
+                buf.append("  " + REPORTED_BY);buf.append(reportedBy + "\n");
+                buf.append("  " + CLASS_NAME);buf.append(cl.getClass().getCanonicalName() + "\n");
+                buf.append("  " + DESCRIPTION);buf.append(description + "\n");
+                buf.append("  " + SEVERITY);buf.append(severity + "\n");
                 if (infos.containsKey(name)) {
                     // the key exists, should append bug info
                     buf.append("\n");
@@ -69,7 +69,7 @@ public class BugReportGenerator {
             }
         }
         
-        File report = new File("bug_report.txt");
+        File report = new File(REPORT_NAME);
         
         try {
             PrintWriter writer = new PrintWriter(report);
