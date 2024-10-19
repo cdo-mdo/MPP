@@ -8,7 +8,18 @@ import java.util.stream.Collectors;
 public class FixThis {
     /* This method creates a compiler error -- try to fix it */
     List<String> processList(List<String> list) {
-        return list.stream().map(x -> wrapper(x)).collect(Collectors.toList());
+//        return list.stream().map(x -> wrapper(x)).collect(Collectors.toList());
+        
+        return list.stream().map(x -> 
+            {
+                try {
+                    return doNothingIfShort(x);
+                }
+                catch (Exception e) {
+                    e.printStackTrace();
+                    return "";
+                }
+            }).collect(Collectors.toList());
     }
     
     String wrapper(String input) {
