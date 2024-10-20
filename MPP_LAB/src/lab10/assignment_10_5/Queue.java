@@ -11,21 +11,53 @@ public class Queue {
     private Node head;
     private Node tail;
 
-    public void add(Object newValue) {
+    public synchronized void add(Object newValue) {
         Node n = new Node();
-        if (head == null)
+        if (head == null) {
             head = n;
-        else
+        }
+        else {
             tail.next = n;
+        }
         tail = n;
         tail.value = newValue;
     }
 
-    public Object remove() {
-        if (head == null)
+    public synchronized Object remove() {
+        if (head == null) {
             return null;
+        }
         Node n = head;
         head = n.next;
         return n.value;
+    }
+    
+    public synchronized long getSize() {
+        if (head == null) {
+            return 0;
+        }
+        Node node = head;
+        long count = 0;
+        while (node != null) {
+            count++;
+            node = node.next;
+        }
+        return count;
+    }
+    
+    public String toString() {
+        if (head == null) {
+            return "[]";
+        }
+        StringBuilder builder = new StringBuilder();
+        builder.append("[");
+        Node node = head;
+        while (node != null) {
+            builder.append(node.value + ", ");
+            node = node.next;
+        }
+        builder.append("]");
+        
+        return builder.toString();
     }
 }
