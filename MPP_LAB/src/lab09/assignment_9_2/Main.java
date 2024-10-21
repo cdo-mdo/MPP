@@ -5,13 +5,24 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class Main {
-    List<Order> orders;
+    static List<Order> orders;
 
     public static void main(String[] args) {
         Main m = new Main();
         m.loadOrderData();
         m.displayAllOrders();
         m.showAllOrderItems();
+        
+        System.out.println("++++++++++++++++++");
+        
+        System.out.println(orders.stream()
+            .flatMap(o -> o.getOrderItems().stream())
+            .sorted(Comparator.comparing((OrderItem i) -> i.unitPrice))
+//            .limit(1)
+            .toList().get(0).productId);
+//            .map(i -> i.productId));
+//            .filter(i -> Math.min(i.unitPrice));
+                    
 
     }
 
@@ -49,5 +60,6 @@ public class Main {
         o.addOrderItem("1024", 1, 41);
         orders.add(o);
     }
+    
 
 }

@@ -12,14 +12,13 @@ public class Main {
         Thread t3 = new Thread(thread3);
         t1.start();
         t2.start();
-        t3.start();
+//        t3.start();
         
         try {
             t1.join();
             t2.join();
-            t3.join();
+//            t3.join();
         } catch (InterruptedException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         

@@ -3,9 +3,9 @@ package lab09.assignment_9_2;
 import java.time.LocalDate;
 
 public class OrderItem {
-    private String productId;
-    private int quantityRequested;
-    private int unitPrice;
+    public String productId;
+    public int quantityRequested;
+    public int unitPrice;
 
     // package level constructor
     OrderItem(String id, int quantity, int price) {

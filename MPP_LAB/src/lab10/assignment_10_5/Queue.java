@@ -45,7 +45,7 @@ public class Queue {
         return count;
     }
     
-    public String toString() {
+    public synchronized String toString() {
         if (head == null) {
             return "[]";
         }
