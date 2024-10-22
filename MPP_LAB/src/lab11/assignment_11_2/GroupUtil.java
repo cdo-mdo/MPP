@@ -4,9 +4,9 @@ import java.util.*;
 
 public class GroupUtil {
     // Fix this code
-	public static Group<?> copy(Group<?> group) {
-		List<?> elements = group.getElements();
-		Group<?> grp = new Group<?>(group.getSpecialElement(), elements);
+	public static <T> Group<T> copy(Group<T> group) {
+		List<T> elements = group.getElements();
+		Group<T> grp = new Group<T>(group.getSpecialElement(), elements);
 		return grp;
 	}
 
@@ -15,6 +15,6 @@ public class GroupUtil {
         List<Integer> list = Arrays.asList(0, 1, 2, 3, 4);
         Group<Integer> group = new Group<>(0, list);
         System.out.println(group);
-        // System.out.println(GroupUtil.copy(group));
+        System.out.println(GroupUtil.copy(group));
     }
 }
