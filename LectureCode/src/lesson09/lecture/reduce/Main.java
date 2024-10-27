@@ -1,4 +1,4 @@
-package lesson09.lecture.reduce;
+ package lesson09.lecture.reduce;
 
 import java.util.Arrays;
 import java.util.List;

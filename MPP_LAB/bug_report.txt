@@ -1,0 +1,22 @@
+Tom Jones
+  reportedBy: Corazza
+  classname: java.lang.Class
+  description: 
+  severity: 1
+
+  reportedBy: Corazza
+  classname: java.lang.Class
+  description: computePerimeter incorrect
+  severity: 0
+
+Joe Smith
+  reportedBy: Corazza
+  classname: java.lang.Class
+  description: computePerimeter incorrect
+  severity: 2
+
+  reportedBy: Corazza
+  classname: java.lang.Class
+  description: Should use Logger
+  severity: 1
+

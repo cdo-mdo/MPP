@@ -7,10 +7,14 @@ public class Reverse {
     public static <T> void reverse(List<?> list) {
         List<Object> tmp = new ArrayList<Object>(list);
         for (int i = 0; i < list.size(); i++) {
-             list.set(i, tmp.get(list.size() - i - 1)); //compiler error
+//             list.set(i, tmp.get(list.size() - i - 1)); //compiler error
+             setItemToList(i, tmp.get(list.size() - i - 1), list);
         }
         
-        void copy 
+    }
+    
+    private static <T> void setItemToList(int i, Object item, List<T> list) {
+        list.set(i, (T)item);
     }
 
     // Test your code with this main method

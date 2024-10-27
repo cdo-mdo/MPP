@@ -7,6 +7,10 @@ public class Order {
     private String orderId;
     private LocalDate dateOfOrder;
     private List<OrderItem> orderItems;
+    
+    public LocalDate getLocalDate() {
+        return dateOfOrder;
+    }
 
     public Order(LocalDate date, String orderId, String itemid, int quantity, int price) {
         this.orderId = orderId;

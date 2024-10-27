@@ -6,6 +6,14 @@ public class OrderItem {
     public String productId;
     public int quantityRequested;
     public int unitPrice;
+    
+    public int getUnitPrice() {
+        return unitPrice;
+    }
+    
+    public String getProductId() {
+        return productId;
+    }
 
     // package level constructor
     OrderItem(String id, int quantity, int price) {
